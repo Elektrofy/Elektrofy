@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 let currentSlide = 0;
-let carouselArray = [ {carouselText : "Havells",carouselImage : "havells.jpg" }, { carouselText : "Crabtree", carouselImage : "crabtree.jpg"},{carouselText : "Phillips",carouselImage : "phillips.jpg"}]; 
+let carouselArray = [ {carouselText : "Havells",carouselImage : "havells.webp" }, { carouselText : "Crabtree", carouselImage : "crabtree.webp"},{carouselText : "Phillips",carouselImage : "phillips.webp"}]; 
 
 const nameRegex = '^[a-zA-Z\.\\s]*$';
 const emailRegex = '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$';
