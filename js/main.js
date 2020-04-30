@@ -1,52 +1,18 @@
 $(document).ready(function(){
-    
-    
-
-    let glider = new Glider(document.querySelector('.glider'), {
-        // Mobile-first defaults
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        draggable:true,
-        scrollLock: true,
-        
-        arrows: {
-          prev: '.glider-prev',
-          next: '.glider-next'
-        },
-        // responsive: [
-        //   {
-        //     // screens greater than >= 775px
-        //     breakpoint: 775,
-        //     settings: {
-        //       // Set to `auto` and provide item width to adjust to viewport
-        //       slidesToShow: 'auto',
-        //       slidesToScroll: 'auto',
-        //       //dots: '#dots',
-        //       itemWidth: 150,
-        //       duration: 0.25
-        //     }
-        //   },{
-        //     // screens greater than >= 1024px
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 4,
-        //       slidesToScroll: 3,
-        //       //dots: '#dots',
-        //       itemWidth: 150,
-        //       duration: 0.25
-        //     }
-        //   }
-        // ]
-      });
-
-
 
 });
+
+let currentSlide = 0;
+let carouselArray = [ {carouselText : "Havells",carouselImage : "havells.jpg" }, { carouselText : "Crabtree", carouselImage : "crabtree.jpg"},{carouselText : "Phillips",carouselImage : "phillips.jpg"}]; 
 
 const nameRegex = '^[a-zA-Z\.\\s]*$';
 const emailRegex = '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$';
 const mobileRegex = '^[6-9]{1}[0-9]{9}$';
 const addressRegex = '[A-Za-z0-9\.\-\s\,]';
+
+setInterval(function() {
+  onNextBtnClick();
+}, 4500);
 
 const toggleErrorIcon = (isValid, validId, invalidId) => {
   const validIcon = document.getElementById(validId).classList;
@@ -84,3 +50,20 @@ const validateAddress = () => {
   const isAddressValid = address.length > 10 && address.length < 30 && address.match(addressRegex);
   toggleErrorIcon(isAddressValid, 'validCustomerAddress', 'invalidCustomerAddress');
 }
+
+const onPrevBtnClick = () =>{
+  const carouselImageDiv = document.getElementById('carouselImage');
+  const carouselTextDiv = document.getElementById('carouselText');
+  currentSlide = (currentSlide - 1) < 0 ?  carouselArray.length-1 : --currentSlide;
+  carouselImageDiv.style.backgroundImage = "url(../img/"+carouselArray[currentSlide].carouselImage+")";
+  carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
+}
+
+const onNextBtnClick = () =>{
+  const carouselImageDiv = document.getElementById('carouselImage');
+  const carouselTextDiv = document.getElementById('carouselText');
+  currentSlide = (currentSlide + 1) > carouselArray.length-1 ?  0: ++currentSlide;
+  carouselImageDiv.style.backgroundImage = "url(../img/"+carouselArray[currentSlide].carouselImage+")";
+  carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;   
+}
+

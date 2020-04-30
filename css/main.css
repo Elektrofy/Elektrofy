@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Proxima Nova";
-  src: url("../fonts/Proxima\ Nova\ Alt\ Regular.otf");
+  src: url("../fonts/ProximaNova-Regular.otf");
   font-weight: 400;
   
 }
@@ -13,15 +13,29 @@
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url("../fonts/Proxima\ Nova\ Alt\ Semibold.otf");
+  src: url("../fonts/Proxima\ Nova\ Semibold.otf");
   font-weight: 600;
   
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url("../fonts/Proxima\ Nova\ Alt\ Thin.otf");
+  src: url("../fonts/Proxima\ Nova\ Thin.otf");
   font-weight: 100;
+  
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Extrabold.otf");
+  font-weight: 800;
+  
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Black.otf");
+  font-weight: 900;
   
 }
 
@@ -37,8 +51,6 @@ body {
 
 .bg-custom-gradient{
   
-  /* background-color: linear-gradient(144.11deg, #FE9497 0%, #FA0E15 97.29%);
-  background-image: url('../img/blob.svg'); */
   background :url('../img/blob.svg') no-repeat center, linear-gradient(144.11deg, #FE9497 0%, #FA0E15 97.29%);
 }
 
@@ -58,4 +70,8 @@ body {
 .bg-primary{
 
   background:#FA0E15;
+}
+
+#carouselImage{
+  background-image: url(../img/havells.jpg);
 }
