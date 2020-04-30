@@ -11,10 +11,8 @@ const mobileRegex = '^[6-9]{1}[0-9]{9}$';
 const addressRegex = '[A-Za-z0-9\.\-\s\,]';
 let uploadedImages = [];
 
-setInterval(function() {
-  onNextBtnClick();
-}, 4500);
 
+// Validation Functions
 const toggleErrorIcon = (isValid, validId, invalidId) => {
   const validIcon = document.getElementById(validId).classList;
   const invalidIcon = document.getElementById(invalidId).classList;
@@ -52,6 +50,12 @@ const validateAddress = () => {
   toggleErrorIcon(isAddressValid, 'validCustomerAddress', 'invalidCustomerAddress');
 }
 
+// Carousel Functions
+
+setInterval(function() {
+  onNextBtnClick();
+}, 4500);
+
 const onPrevBtnClick = () =>{
   const carouselImageDiv = document.getElementById('carouselImage');
   const carouselTextDiv = document.getElementById('carouselText');
@@ -68,6 +72,7 @@ const onNextBtnClick = () =>{
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;   
 }
 
+// File Upload UI functions
 const triggerFileUpload = () => {
   document.getElementById('uploadFile').click();
 }
