@@ -106,63 +106,63 @@
                     </div>
 
                     <!-- Upload Files section -->
-                    <div class="flex w-4/5 md:w-3/5 rounded-md h-40 bg-white my-4 border-2 border-dashed">
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-40 bg-white my-4">
 
                         <!-- Upload Files Text -->
-                        <div class=" flex w-3/4 h-full justify-center items-center text-xl  text-gray-600">
+                        <div id="uploadFileText" class=" flex w-3/4 h-full justify-center items-center text-xl  text-gray-500">
                             Upload Files
                         </div>
 
                         <!-- First Image Container -->
-                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+                        <div id="imageOne" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- First Image -->
                             <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-
+                                <img id="displayImageOne" class="h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(0)">
                                 <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
                             </div>
 
                         </div>
 
                         <!-- Second Image Container -->
-                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+                        <div id="imageTwo" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- Second Image -->
                             <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-
+                                <img id="displayImageTwo" class="h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(1)">
                                 <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
                             </div>
 
                         </div>
 
                         <!-- Third Image Container -->
-                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+                        <div id="imageThree" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- Third Image -->
                             <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-
+                                <img id="displayImageThree" class="h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(2)">
                                 <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
                             </div>
 
                         </div>
 
                         <!-- Upload Icon Container -->
-                        <div class=" cursor-pointer  flex flex-col w-1/4 h-full justify-around items-center p-5">
+                        <div class=" cursor-pointer flex flex-col w-1/4 h-full justify-around items-center p-5">
 
-                            
-                            <div class="flex justify-center items-center w-10 h-10 md:w-16 md:h-16 rounded-md bg-primary-gradient">
+                            <input class="hidden" type="file" id="uploadFile" multiple accept="image/*" onchange="uploadImage()" />
+                            <div class="flex justify-center items-center w-10 h-10 md:w-16 md:h-16 rounded-md bg-primary-gradient" onclick="triggerFileUpload()">
                                 <i><svg class="h-4 w-4 md:h-8 md:w-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg></i>
                             </div>
 

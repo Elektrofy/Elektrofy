@@ -9,6 +9,7 @@ const nameRegex = '^[a-zA-Z\.\\s]*$';
 const emailRegex = '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$';
 const mobileRegex = '^[6-9]{1}[0-9]{9}$';
 const addressRegex = '[A-Za-z0-9\.\-\s\,]';
+let uploadedImages = [];
 
 setInterval(function() {
   onNextBtnClick();
@@ -67,3 +68,55 @@ const onNextBtnClick = () =>{
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;   
 }
 
+const triggerFileUpload = () => {
+  document.getElementById('uploadFile').click();
+}
+
+const displayImages = () => {
+  const imagesLength = uploadedImages.length;
+  const uploadFileText = document.getElementById("uploadFileText").classList;
+  !uploadFileText.contains('hidden') && uploadFileText.add('hidden');
+  if(imagesLength === 3){
+    const imageThree = document.getElementById("imageThree").classList;
+    imageThree.contains('hidden') && imageThree.remove('hidden');
+    document.getElementById("displayImageThree").src = URL.createObjectURL(uploadedImages[2]);
+  }
+  if(imagesLength >= 2){
+    const imageTwo = document.getElementById("imageTwo").classList;
+    imageTwo.contains('hidden') && imageTwo.remove('hidden');
+    document.getElementById("displayImageTwo").src = URL.createObjectURL(uploadedImages[1]);
+  }
+  if(imagesLength >= 1){
+    const imageOne = document.getElementById("imageOne").classList;
+    imageOne.contains('hidden') && imageOne.remove('hidden');
+    document.getElementById("displayImageOne").src = URL.createObjectURL(uploadedImages[0]);
+  }
+}
+
+const removeImages = () => {
+  const uploadFileText = document.getElementById("uploadFileText").classList;
+  uploadFileText.contains('hidden') && uploadFileText.remove('hidden');
+  const imageThree = document.getElementById("imageThree").classList;
+  !imageThree.contains('hidden') && imageThree.add('hidden');
+  const imageTwo = document.getElementById("imageTwo").classList;
+  !imageTwo.contains('hidden') && imageTwo.add('hidden');
+  const imageOne = document.getElementById("imageOne").classList;
+  !imageOne.contains('hidden') && imageOne.add('hidden');
+}
+
+const uploadImage = () => {
+  uploadedImages = Array.from(document.getElementById("uploadFile").files);
+  if(uploadedImages.length > 0 && uploadedImages.length <= 3){
+    const uploadFileText = document.getElementById("uploadFileText").classList;
+    !uploadFileText.contains('hidden') && uploadFileText.add('hidden');
+    removeImages();
+    displayImages();
+  }
+}
+
+const deleteImage = (index) => {
+  uploadedImages.splice(index,1);
+  removeImages();
+  if(uploadedImages.length > 0 && uploadedImages.length <= 3)
+    displayImages();
+}
