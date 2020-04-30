@@ -105,7 +105,9 @@ const removeImages = () => {
 }
 
 const uploadImage = () => {
-  uploadedImages = Array.from(document.getElementById("uploadFile").files);
+  let newUploadedImages = Array.from(document.getElementById("uploadFile").files);
+  if(uploadedImages.length + newUploadedImages.length <=3)
+    uploadedImages = uploadedImages.concat(newUploadedImages);
   if(uploadedImages.length > 0 && uploadedImages.length <= 3){
     const uploadFileText = document.getElementById("uploadFileText").classList;
     !uploadFileText.contains('hidden') && uploadFileText.add('hidden');
