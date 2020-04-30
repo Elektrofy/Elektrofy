@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bijliman</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+</head>
+<body class="bg-body">
+
+    <!-- Whole first section -->
+    <section class="flex flex-col md:flex-row w-full h-screen">
+
+        <!-- Logo and Carousel section (Left Side) -->
+        <div class="flex flex-col w-full md:w-2/5 h-full bg-custom-gradient  bg-center">
+
+            <!-- Logo section -->
+            <div class="flex w-full h-20 justify-center md:justify-start items-center px-10">
+                <img class="h-6 w-6" src="./img/greek.svg" alt="">
+                <!-- <span class="px-2 font-bold text-white tracking-wider">lektrofy</span> -->
+            </div>
+             <!-- End Logo section -->
+
+            <!-- Carousel Section -->
+            <div class="flex flex-col w-full h-full  justify-center items-center">
+                <div class=" flex flex-row w-full h-auto  justify-center items-center">
+                    
+                    <!-- Left Arrow Carousel -->
+                    <div class="flex w-1/5 h-full justify-end items-center"> 
+                        <svg class="w-14 h-12 -mx-6 z-50 cursor-pointer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve" ><g><path class="shadow-lg" id="XMLID_8_" d="M315,150H51.213l11.894-11.894c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0  l-37.5,37.5c-5.858,5.858-5.858,15.355,0,21.213l37.5,37.5c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.607-4.394  c5.858-5.858,5.858-15.355,0-21.213L51.213,180H315c8.284,0,15-6.716,15-15S323.284,150,315,150z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+                     </div>
+                    <div class="flex w-3/5 h-full ">
+
+                        <div class="flex w-full h-full ">
+                            <div class="flex flex-col w-full h-full justify-center items-center ">
+                                <div class="flex flex-col w-full h-64 bg-carousel-default rounded-md justify-end items-center">
+                                    
+                                </div>
+                                <div class="flex w-3/5 h-16 bg-white  rounded-md -my-10 shadow-lg justify-center items-center">
+                                    <span class="font-bold text-gray-800  text-2xl"> Havells </span>
+                                </div>
+                                <div class="flex w-3/5 h-10 "></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Arrow Carousel -->
+                    <div class="flex w-1/5 h-full justify-start items-center"> 
+                        <svg class="w-14 h-12 -mx-6 z-50 cursor-pointer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve" ><g><path class="shadow-lg" id="XMLID_7_" d="M288.107,116.894c-5.858-5.858-15.355-5.858-21.213,0c-5.858,5.858-5.858,15.355,0,21.213L278.787,150H15  c-8.284,0-15,6.716-15,15c0,8.284,6.716,15,15,15h263.787l-11.894,11.893c-5.858,5.858-5.858,15.355,0,21.213  c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.607-4.394l37.5-37.5c5.858-5.858,5.858-15.355,0-21.213  L288.107,116.894z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- End Carousel Section -->
+            
+        </div>
+        <!-- End Logo and Carousel section -->
+
+
+        <!-- Form section  (Right Side)-->
+        <div class=" flex flex-col w-full md:w-3/5 h-full justify-center items-center">
+            <span class="font-bold text-3xl md:text-4xl text-gray-800 text-center pt-8">Create your Order</span>
+            <span class="font-semibold text-xl md:text-2xl text-gray-500 text-center"> Your one stop shop for all your electrical products</span>
+
+            <div class="w-full h-full py-4">
+                <form action="" class="flex flex-col w-full h-full  items-center">
+                    
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-12 bg-white  items-center my-4">
+                        <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i>
+                        <input class="px-2 text-md   text-gray-700 w-full outline-none" placeholder="Full Name" type="text">
+                        <i class="px-2 hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
+                    </div>
+
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-12 bg-white  items-center my-4">
+                        <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></i>
+                        <input class="px-2 text-md   text-gray-700 w-full outline-none" placeholder="Email" type="email">
+                        <i class="px-2 hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
+                    </div>
+
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-12 bg-white  items-center my-4">
+                        <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i>
+                        <input class="px-2 text-md  text-gray-700 w-full outline-none" placeholder="Mobile Number" type="text">
+                        <i class="px-2 hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
+                    </div>
+
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-12 bg-white  items-center my-4">
+                        <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i>
+                        <input class="px-2 text-md   text-gray-700 w-full outline-none" placeholder="Delivery Address" type="text">
+                        <i class="px-2 hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
+                    </div>
+
+                    <!-- Upload Files section -->
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-40 bg-white my-4">
+
+                        <!-- Upload Files Text -->
+                        <div class=" flex w-3/4 h-full justify-center items-center text-xl  text-gray-500">
+                            Upload Files
+                        </div>
+
+                        <!-- First Image Container -->
+                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+
+                            <!-- First Image -->
+                            <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
+
+                            </div>
+
+                            <!-- Delete  -->
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            </div>
+
+                        </div>
+
+                        <!-- Second Image Container -->
+                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+
+                            <!-- Second Image -->
+                            <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
+
+                            </div>
+
+                            <!-- Delete  -->
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            </div>
+
+                        </div>
+
+                        <!-- Third Image Container -->
+                        <div class="hidden flex flex-col w-1/4 h-full justify-around items-center">
+
+                            <!-- Third Image -->
+                            <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
+
+                            </div>
+
+                            <!-- Delete  -->
+                            <div class="flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center">
+                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            </div>
+
+                        </div>
+
+                        <!-- Upload Icon Container -->
+                        <div class=" cursor-pointer flex flex-col w-1/4 h-full justify-around items-center p-5">
+
+                            
+                            <div class="flex justify-center items-center w-10 h-10 md:w-16 md:h-16 rounded-md bg-primary-gradient">
+                                <i><svg class="h-4 w-4 md:h-8 md:w-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+                     <!-- End Upload Files section -->
+
+                     <!-- Place Order button section -->
+                    <button disabled class=" cursor-pointer flex w-4/5 md:w-3/5 rounded-md h-12 bg-primary  items-center my-4 justify-center items-center">
+                        <span class="text-white font-bold text-lg">Place Order</span>
+                        <i><svg class=" mx-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve" width="512px" height="512px"><g><path id="XMLID_7_" d="M288.107,116.894c-5.858-5.858-15.355-5.858-21.213,0c-5.858,5.858-5.858,15.355,0,21.213L278.787,150H15  c-8.284,0-15,6.716-15,15c0,8.284,6.716,15,15,15h263.787l-11.894,11.893c-5.858,5.858-5.858,15.355,0,21.213  c2.929,2.929,6.768,4.394,10.606,4.394c3.839,0,7.678-1.464,10.607-4.394l37.5-37.5c5.858-5.858,5.858-15.355,0-21.213  L288.107,116.894z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+                        </i>
+                    </button>
+                    <!-- End Place Order button section -->
+                    
+                </form>
+            </div>
+            
+        </div>
+    </section>
+    
+    <script src="./js/main.js"></script>
+</body>
+
+
+
+</html>

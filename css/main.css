@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Alt\ Regular.otf");
+  font-weight: 400;
+  
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Bold.otf");
+  font-weight: 700;
+  
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Alt\ Semibold.otf");
+  font-weight: 600;
+  
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/Proxima\ Nova\ Alt\ Thin.otf");
+  font-weight: 100;
+  
+}
+
+body {
+  margin: 0;
+  font-family: 'Proxima Nova', sans-serif;
+  
+}
+
+.bg-body{
+  background-color: #F4F4F4;
+}
+
+.bg-custom-gradient{
+  
+  /* background-color: linear-gradient(144.11deg, #FE9497 0%, #FA0E15 97.29%);
+  background-image: url('../img/blob.svg'); */
+  background :url('../img/blob.svg') no-repeat center, linear-gradient(144.11deg, #FE9497 0%, #FA0E15 97.29%);
+}
+
+.bg-carousel-default{
+  background-color: #8C8C8C;
+}
+
+.h-72{
+  height:20rem;
+}
+
+.bg-primary-gradient{
+
+  background: linear-gradient(144.11deg, #FE9497 0%, #FA0E15 97.29%);
+}
+
+.bg-primary{
+
+  background:#FA0E15;
+}
