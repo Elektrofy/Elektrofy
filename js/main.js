@@ -134,7 +134,7 @@ const triggerFileUpload = () => {
 };
 
 const getFileType = (file) => {
-  return file.split('/').pop();
+  return file.split('.').pop();
 };
 
 const displayImages = () => {
@@ -144,7 +144,7 @@ const displayImages = () => {
   if(imagesLength === 3){
     const imageThree = document.getElementById("imageThree").classList;
     imageThree.contains('hidden') && imageThree.remove('hidden');
-    const fileType = getFileType(uploadedImages[2].type);
+    const fileType = getFileType(uploadedImages[2].name);
     if(otherFileType.includes(fileType)){
       document.getElementById("displayFileThree").classList.remove('hidden');
       document.getElementById("displayFileThree").innerText = fileType.toUpperCase();
@@ -157,7 +157,7 @@ const displayImages = () => {
   if(imagesLength >= 2){
     const imageTwo = document.getElementById("imageTwo").classList;
     imageTwo.contains('hidden') && imageTwo.remove('hidden');
-    const fileType = getFileType(uploadedImages[1].type);
+    const fileType = getFileType(uploadedImages[1].name);
     if(otherFileType.includes(fileType)){
       document.getElementById("displayFileTwo").classList.remove('hidden');
       document.getElementById("displayFileTwo").innerText = fileType.toUpperCase();
@@ -170,7 +170,7 @@ const displayImages = () => {
   if(imagesLength >= 1){
     const imageOne = document.getElementById("imageOne").classList;
     imageOne.contains('hidden') && imageOne.remove('hidden');
-    const fileType = getFileType(uploadedImages[0].type);
+    const fileType = getFileType(uploadedImages[0].name);
     if(otherFileType.includes(fileType)){
       document.getElementById("displayFileOne").classList.remove('hidden');
       document.getElementById("displayFileOne").innerText = fileType.toUpperCase();
