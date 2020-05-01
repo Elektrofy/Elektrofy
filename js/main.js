@@ -30,24 +30,10 @@ let dataObject = {
 };
 
 const clearFieldsandErrors = () => {
-  dataObject = {
-    name: {
-      isValid: false,
-      value: '',
-    },
-    email: {
-      isValid: false,
-      value: '',
-    },
-    mobileNo: {
-      isValid: false,
-      value: '',
-    },
-    address: {
-      isValid: false,
-      value: '',
-    }
-  };
+  updateDataObject(false, 'name', '');
+  updateDataObject(false, 'email', '');
+  updateDataObject(false, 'mobileNo', '');
+  updateDataObject(false, 'address', '');
   uploadedImages = [];
   document.getElementById('customerName').value = '';
   toggleErrorIcon('hideIcons', 'validCustomerName', 'invalidCustomerName');
@@ -59,7 +45,7 @@ const clearFieldsandErrors = () => {
   toggleErrorIcon('hideIcons', 'validCustomerAddress', 'invalidCustomerAddress');
   removeImages();
   document.getElementById('placeOrderText').innerText="Place Order";
-    document.getElementById('placeOrderButton').disabled = false;
+  document.getElementById('placeOrderButton').disabled = false;
 };
 
 // Validation Functions
@@ -80,44 +66,43 @@ const toggleErrorIcon = (isValid, validId, invalidId) => {
   }
 };
 
+const updateDataObject = (isValid, key, value = '') => {
+  if(isValid){
+    dataObject[key].value = value;
+    dataObject[key].isValid = true;
+  }
+  else{
+    dataObject[key].value = value;
+    dataObject[key].isValid = false;
+  }
+};
+
 const validateName = () => {
   const name = document.getElementById('customerName').value;
   const isNameValid = name.length > 5 && name.length < 20 && name.match(nameRegex);
   toggleErrorIcon(!!isNameValid, 'validCustomerName', 'invalidCustomerName');
-  if(isNameValid){
-    dataObject.name.value = name;
-    dataObject.name.isValid = true;
-  }
+  updateDataObject(!!isNameValid, 'name', name);
 };
 
 const validateEmail = () => {
   const email = document.getElementById('customerEmail').value;
   const isEmailValid = email.match(emailRegex);
   toggleErrorIcon(!!isEmailValid, 'validCustomerEmail', 'invalidCustomerEmail');
-  if(isEmailValid){
-    dataObject.email.value = email;
-    dataObject.email.isValid = true;
-  }
+  updateDataObject(!!isEmailValid, 'email', email);
 };
 
 const validateMobile = () => {
   const mobile = document.getElementById('customerMobile').value;
   const isMobileValid = mobile.match(mobileRegex);
   toggleErrorIcon(!!isMobileValid, 'validCustomerMobile', 'invalidCustomerMobile');
-  if(isMobileValid){
-    dataObject.mobileNo.value = mobile;
-    dataObject.mobileNo.isValid = true;
-  }
+  updateDataObject(!!isMobileValid, 'mobileNo', mobile);
 };
 
 const validateAddress = () => {
   const address = document.getElementById('customerAddress').value;
   const isAddressValid = address.length > 10 && address.length < 30 && address.match(addressRegex);
   toggleErrorIcon(!!isAddressValid, 'validCustomerAddress', 'invalidCustomerAddress');
-  if(isAddressValid){
-    dataObject.address.value = address;
-    dataObject.address.isValid = true;
-  }
+  updateDataObject(!!isAddressValid, 'address', address);
 };
 
 // Carousel Functions
