@@ -241,3 +241,10 @@ const checkboxClicked = ()=>{
     checkbox.classList.remove("checkboxChecked");
   
 }
+
+const closeFunction =()=>{
+  document.getElementById("myDialog").close(); 
+}
+const  openModal=()=> { 
+  document.getElementById("myDialog").showModal(); 
+}

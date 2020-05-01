@@ -181,7 +181,7 @@
                         <div id="checkbox-background" class="flex  w-4 h-4 bg-white rounded-sm cursor-pointer bg-contain bg-center" onclick="checkboxClicked()">
 
                         </div>
-                        <span class="flex px-2 text-gray-700"> I agree to the <a class="px-1" href="#"> Terms & Conditions</a></span>
+                        <span onclick="openModal()"  class="  flex px-2 text-gray-700 cursor-pointer"> I agree to the Terms & Conditions</span>
                         
                         
                     </div>
@@ -199,7 +199,15 @@
             
         </div>
     </section>
-    
+    <dialog id="myDialog" class="h-auto w-1/2 p-10  bg-white rounded-md ">
+        
+        This is a dialog window
+
+        
+        <div class="actions">
+          <button onclick="closeFunction()" class="  bg-red-500 rounded-md text-white px-8 py-1">Close</button>
+        </div>
+    </dialog>
 </body>
 
 
