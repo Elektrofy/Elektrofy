@@ -139,13 +139,15 @@ const getFileType = (file) => {
 
 const displayImageorText = (file, textId, imageId, image) => {
   const fileType = getFileType(file.name);
+  const displayFile = document.getElementById(textId);
+  const displayImage = document.getElementById(imageId);
   if(otherFileType.includes(fileType)){
-    const displayFile = document.getElementById(textId);
+    !displayImage.classList.contains('hidden') && displayImage.classList.add('hidden');
     displayFile.classList.contains('hidden') && displayFile.classList.remove('hidden');
     displayFile.innerText = fileType.toUpperCase();
   }
   else{
-    const displayImage = document.getElementById(imageId);
+    !displayFile.classList.contains('hidden') && displayFile.classList.add('hidden');
     displayImage.classList.contains('hidden') && displayImage.classList.remove('hidden');
     displayImage.src = URL.createObjectURL(file);
   }
