@@ -75,3 +75,8 @@ body {
 #carouselImage{
   background-image: url(../img/havells.webp);
 }
+
+
+.checkboxChecked{
+  background-image: url(../img/check.svg);
+}

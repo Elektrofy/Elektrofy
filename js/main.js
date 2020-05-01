@@ -231,3 +231,13 @@ const placeOrder = () => {
 
   }
 };
+
+const checkboxClicked = ()=>{
+  
+  const checkbox = document.getElementById('checkbox-background');
+  if(!checkbox.classList.contains('checkboxChecked'))
+    checkbox.classList.add("checkboxChecked");
+  else
+    checkbox.classList.remove("checkboxChecked");
+  
+}
