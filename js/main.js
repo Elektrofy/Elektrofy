@@ -10,45 +10,115 @@ const emailRegex = '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Z
 const mobileRegex = '^[6-9]{1}[0-9]{9}$';
 const addressRegex = '[A-Za-z0-9\.\-\s\,]';
 let uploadedImages = [];
+let dataObject = {
+  name: {
+    isValid: false,
+    value: '',
+  },
+  email: {
+    isValid: false,
+    value: '',
+  },
+  mobileNo: {
+    isValid: false,
+    value: '',
+  },
+  address: {
+    isValid: false,
+    value: '',
+  }
+};
 
+const clearFieldsandErrors = () => {
+  dataObject = {
+    name: {
+      isValid: false,
+      value: '',
+    },
+    email: {
+      isValid: false,
+      value: '',
+    },
+    mobileNo: {
+      isValid: false,
+      value: '',
+    },
+    address: {
+      isValid: false,
+      value: '',
+    }
+  };
+  uploadedImages = [];
+  document.getElementById('customerName').value = '';
+  toggleErrorIcon('hideIcons', 'validCustomerName', 'invalidCustomerName');
+  document.getElementById('customerEmail').value = '';
+  toggleErrorIcon('hideIcons', 'validCustomerEmail', 'invalidCustomerEmail');
+  document.getElementById('customerMobile').value = '';
+  toggleErrorIcon('hideIcons', 'validCustomerMobile', 'invalidCustomerMobile');
+  document.getElementById('customerAddress').value = '';
+  toggleErrorIcon('hideIcons', 'validCustomerAddress', 'invalidCustomerAddress');
+  removeImages();
+  document.getElementById('placeOrderText').innerText="Place Order";
+    document.getElementById('placeOrderButton').disabled = false;
+};
 
 // Validation Functions
 const toggleErrorIcon = (isValid, validId, invalidId) => {
   const validIcon = document.getElementById(validId).classList;
   const invalidIcon = document.getElementById(invalidId).classList;
-  if(isValid){
+  if(isValid === true){
     validIcon.contains('hidden') && validIcon.remove('hidden');
     !invalidIcon.contains('hidden') && invalidIcon.add('hidden');
   }
-  else{
+  else if(isValid === false){
     invalidIcon.contains('hidden') && invalidIcon.remove('hidden');
     !validIcon.contains('hidden') && validIcon.add('hidden');
   }
-}
+  else if(isValid === "hideIcons"){
+    !invalidIcon.contains('hidden') && invalidIcon.add('hidden');
+    !validIcon.contains('hidden') && validIcon.add('hidden');
+  }
+};
 
 const validateName = () => {
   const name = document.getElementById('customerName').value;
   const isNameValid = name.length > 5 && name.length < 20 && name.match(nameRegex);
-  toggleErrorIcon(isNameValid, 'validCustomerName', 'invalidCustomerName');
-}
+  toggleErrorIcon(!!isNameValid, 'validCustomerName', 'invalidCustomerName');
+  if(isNameValid){
+    dataObject.name.value = name;
+    dataObject.name.isValid = true;
+  }
+};
 
 const validateEmail = () => {
   const email = document.getElementById('customerEmail').value;
   const isEmailValid = email.match(emailRegex);
-  toggleErrorIcon(isEmailValid, 'validCustomerEmail', 'invalidCustomerEmail');
-}
+  toggleErrorIcon(!!isEmailValid, 'validCustomerEmail', 'invalidCustomerEmail');
+  if(isEmailValid){
+    dataObject.email.value = email;
+    dataObject.email.isValid = true;
+  }
+};
 
 const validateMobile = () => {
   const mobile = document.getElementById('customerMobile').value;
   const isMobileValid = mobile.match(mobileRegex);
-  toggleErrorIcon(isMobileValid, 'validCustomerMobile', 'invalidCustomerMobile');
-}
+  toggleErrorIcon(!!isMobileValid, 'validCustomerMobile', 'invalidCustomerMobile');
+  if(isMobileValid){
+    dataObject.mobileNo.value = mobile;
+    dataObject.mobileNo.isValid = true;
+  }
+};
 
 const validateAddress = () => {
   const address = document.getElementById('customerAddress').value;
   const isAddressValid = address.length > 10 && address.length < 30 && address.match(addressRegex);
-  toggleErrorIcon(isAddressValid, 'validCustomerAddress', 'invalidCustomerAddress');
-}
+  toggleErrorIcon(!!isAddressValid, 'validCustomerAddress', 'invalidCustomerAddress');
+  if(isAddressValid){
+    dataObject.address.value = address;
+    dataObject.address.isValid = true;
+  }
+};
 
 // Carousel Functions
 
@@ -62,7 +132,7 @@ const onPrevBtnClick = () =>{
   currentSlide = (currentSlide - 1) < 0 ?  carouselArray.length-1 : --currentSlide;
   carouselImageDiv.style.backgroundImage = "url(../img/"+carouselArray[currentSlide].carouselImage+")";
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
-}
+};
 
 const onNextBtnClick = () =>{
   const carouselImageDiv = document.getElementById('carouselImage');
@@ -70,12 +140,12 @@ const onNextBtnClick = () =>{
   currentSlide = (currentSlide + 1) > carouselArray.length-1 ?  0: ++currentSlide;
   carouselImageDiv.style.backgroundImage = "url(../img/"+carouselArray[currentSlide].carouselImage+")";
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;   
-}
+};
 
 // File Upload UI functions
 const triggerFileUpload = () => {
   document.getElementById('uploadFile').click();
-}
+};
 
 const displayImages = () => {
   const imagesLength = uploadedImages.length;
@@ -96,7 +166,7 @@ const displayImages = () => {
     imageOne.contains('hidden') && imageOne.remove('hidden');
     document.getElementById("displayImageOne").src = URL.createObjectURL(uploadedImages[0]);
   }
-}
+};
 
 const removeImages = () => {
   const uploadFileText = document.getElementById("uploadFileText").classList;
@@ -107,7 +177,7 @@ const removeImages = () => {
   !imageTwo.contains('hidden') && imageTwo.add('hidden');
   const imageOne = document.getElementById("imageOne").classList;
   !imageOne.contains('hidden') && imageOne.add('hidden');
-}
+};
 
 const uploadImage = () => {
   let newUploadedImages = Array.from(document.getElementById("uploadFile").files);
@@ -119,11 +189,39 @@ const uploadImage = () => {
     removeImages();
     displayImages();
   }
-}
+};
 
 const deleteImage = (index) => {
   uploadedImages.splice(index,1);
   removeImages();
   if(uploadedImages.length > 0 && uploadedImages.length <= 3)
     displayImages();
-}
+};
+
+const placeOrder = () => {
+  const isReadyforSubmit = Object.values(dataObject).findIndex((field) => field.isValid === false);
+  if(isReadyforSubmit === -1 && uploadedImages.length > 0 && uploadedImages.length <= 3){
+    const formData = new FormData();
+    Object.keys(dataObject).forEach((field) => {
+      formData.append(field,dataObject[field].value);
+    });
+    uploadedImages.forEach((image) => {
+      formData.append('images', image);
+    });
+    const options = {
+      method: "POST",
+      body: formData
+    };
+    document.getElementById('placeOrderText').innerText="Placing your order";
+    document.getElementById('placeOrderButton').disabled = true;
+    fetch("https://bijliman-backend.herokuapp.com/api/orders", options)
+        .then(res => { 
+          clearFieldsandErrors();
+          console.log(res);
+        })
+        .catch(err => { console.log(err);});
+  }
+  else{
+
+  }
+};
