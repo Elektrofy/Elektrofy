@@ -137,6 +137,20 @@ const getFileType = (file) => {
   return file.split('.').pop();
 };
 
+const displayImageorText = (file, textId, imageId, image) => {
+  const fileType = getFileType(file.name);
+  if(otherFileType.includes(fileType)){
+    const displayFile = document.getElementById(textId);
+    displayFile.classList.contains('hidden') && displayFile.classList.remove('hidden');
+    displayFile.innerText = fileType.toUpperCase();
+  }
+  else{
+    const displayImage = document.getElementById(imageId);
+    displayImage.classList.contains('hidden') && displayImage.classList.remove('hidden');
+    displayImage.src = URL.createObjectURL(file);
+  }
+};
+
 const displayImages = () => {
   const imagesLength = uploadedImages.length;
   const uploadFileText = document.getElementById("uploadFileText").classList;
@@ -144,41 +158,17 @@ const displayImages = () => {
   if(imagesLength === 3){
     const imageThree = document.getElementById("imageThree").classList;
     imageThree.contains('hidden') && imageThree.remove('hidden');
-    const fileType = getFileType(uploadedImages[2].name);
-    if(otherFileType.includes(fileType)){
-      document.getElementById("displayFileThree").classList.remove('hidden');
-      document.getElementById("displayFileThree").innerText = fileType.toUpperCase();
-    }
-    else{
-      document.getElementById("displayImageThree").classList.remove('hidden');
-      document.getElementById("displayImageThree").src = URL.createObjectURL(uploadedImages[2]);
-    }
+    displayImageorText(uploadedImages[2], 'displayFileThree', 'displayImageThree');
   }
   if(imagesLength >= 2){
     const imageTwo = document.getElementById("imageTwo").classList;
     imageTwo.contains('hidden') && imageTwo.remove('hidden');
-    const fileType = getFileType(uploadedImages[1].name);
-    if(otherFileType.includes(fileType)){
-      document.getElementById("displayFileTwo").classList.remove('hidden');
-      document.getElementById("displayFileTwo").innerText = fileType.toUpperCase();
-    }
-    else{
-      document.getElementById("displayImageTwo").classList.remove('hidden');
-      document.getElementById("displayImageTwo").src = URL.createObjectURL(uploadedImages[1]);
-    }
+    displayImageorText(uploadedImages[1], 'displayFileTwo', 'displayImageTwo');
   }
   if(imagesLength >= 1){
     const imageOne = document.getElementById("imageOne").classList;
     imageOne.contains('hidden') && imageOne.remove('hidden');
-    const fileType = getFileType(uploadedImages[0].name);
-    if(otherFileType.includes(fileType)){
-      document.getElementById("displayFileOne").classList.remove('hidden');
-      document.getElementById("displayFileOne").innerText = fileType.toUpperCase();
-    }
-    else{
-      document.getElementById("displayImageOne").classList.remove('hidden');
-      document.getElementById("displayImageOne").src = URL.createObjectURL(uploadedImages[0]);
-    }
+    displayImageorText(uploadedImages[0], 'displayFileOne', 'displayImageOne');
   }
 };
 
