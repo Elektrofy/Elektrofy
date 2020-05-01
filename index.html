@@ -178,10 +178,10 @@
                      <!-- End Upload Files section -->
 
                     <div class="flex w-4/5 md:w-3/5  my-2  justify-center items-center">
-                        <div id="checkbox-background" class="flex  w-4 h-4 bg-white rounded-sm cursor-pointer bg-contain bg-center" onclick="checkboxClicked()">
+                        <div id="checkbox-background" class="flex border-2 border-green-300 w-5 h-5 bg-white rounded-sm cursor-pointer bg-contain bg-center" onclick="checkboxClicked()">
 
                         </div>
-                        <span onclick="openModal()"  class="  flex px-2 text-gray-700 cursor-pointer"> I agree to the Terms & Conditions</span>
+                        <span onclick="openModal()"  class="  flex px-2 text-gray-600 font-semibold cursor-pointer"> I agree to the Terms & Conditions</span>
                         
                         
                     </div>
@@ -199,14 +199,26 @@
             
         </div>
     </section>
-    <dialog id="myDialog" class="h-auto w-1/2 p-10  bg-white rounded-md ">
+    <dialog id="myDialog" class="h-auto w-11/12 md:w-1/2 p-10  bg-white rounded-md ">
         
-        This is a dialog window
+        <div class="flex flex-col w-full h-auto justify-center items-center">
 
-        
-        <div class="actions">
-          <button onclick="closeFunction()" class="  bg-red-500 rounded-md text-white px-8 py-1">Close</button>
+            <div class="flex w-full h-10 justify-center items-center">
+                <div class="flex w-11/12 h-16 justify-center items-center font-semibold text-gray-900">
+                    Terms & Conditions
+                </div>
+                <div onclick="closeFunction()" class="flex w-1/12 h-16 justify-center items-center cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+            </div>
+            <div class="flex text-gray-600 py-2">
+                1) In case of any exchange of goods ( other then damaged or defective) delivery charges will be borne by customers. <br>
+                2) in case of COD or pre paid orders delivery charges will be applicable ones order is out for delivery. <br>
+                3) goods once unpacked cannot be exchanged or returned unless found damaged or defective<br>
+                4) guarantee /warranty onus will be over the respective products manufacturers and customers shall directly contact them.<br>
+            </div>
         </div>
+
     </dialog>
 </body>
 
