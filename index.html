@@ -117,8 +117,10 @@
                         <div id="imageOne" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- First Image -->
-                            <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-                                <img id="displayImageOne" class="h-full w-full rounded-md"></img>
+                            <div class="w-4/5 h-24 bg-gray-200 rounded-md">
+                                <div id="displayFileOne" class="hidden text-center">
+                                </div>
+                                <img id="displayImageOne" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
@@ -133,7 +135,9 @@
 
                             <!-- Second Image -->
                             <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-                                <img id="displayImageTwo" class="h-full w-full rounded-md"></img>
+                                <div id="displayFileTwo" class="hidden text-center">
+                                </div>
+                                <img id="displayImageTwo" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
@@ -148,7 +152,9 @@
 
                             <!-- Third Image -->
                             <div class="w-4/5 h-24 bg-gray-200 rounded-md ">
-                                <img id="displayImageThree" class="h-full w-full rounded-md"></img>
+                                <div id="displayFileThree" class="hidden text-center">
+                                </div>
+                                <img id="displayImageThree" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
@@ -161,7 +167,7 @@
                         <!-- Upload Icon Container -->
                         <div class=" cursor-pointer flex flex-col w-1/4 h-full justify-around items-center p-5">
 
-                            <input class="hidden" type="file" id="uploadFile" multiple accept="image/*" onchange="uploadImage()" />
+                            <input class="hidden" type="file" id="uploadFile" multiple accept=".jpeg,.jpg,.png,.pdf,.xlsx,.docx" onchange="uploadImage()" />
                             <div class="flex justify-center items-center w-10 h-10 md:w-16 md:h-16 rounded-md bg-primary-gradient" onclick="triggerFileUpload()">
                                 <i><svg class="h-4 w-4 md:h-8 md:w-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg></i>
                             </div>

@@ -9,6 +9,7 @@ const nameRegex = '^[a-zA-Z\.\\s]*$';
 const emailRegex = '^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$';
 const mobileRegex = '^[6-9]{1}[0-9]{9}$';
 const addressRegex = '[A-Za-z0-9\.\-\s\,]';
+const otherFileType = ['pdf','xlsx','docx'];
 let uploadedImages = [];
 let dataObject = {
   name: {
@@ -132,6 +133,10 @@ const triggerFileUpload = () => {
   document.getElementById('uploadFile').click();
 };
 
+const getFileType = (file) => {
+  return file.split('/').pop();
+};
+
 const displayImages = () => {
   const imagesLength = uploadedImages.length;
   const uploadFileText = document.getElementById("uploadFileText").classList;
@@ -139,17 +144,41 @@ const displayImages = () => {
   if(imagesLength === 3){
     const imageThree = document.getElementById("imageThree").classList;
     imageThree.contains('hidden') && imageThree.remove('hidden');
-    document.getElementById("displayImageThree").src = URL.createObjectURL(uploadedImages[2]);
+    const fileType = getFileType(uploadedImages[2].type);
+    if(otherFileType.includes(fileType)){
+      document.getElementById("displayFileThree").classList.remove('hidden');
+      document.getElementById("displayFileThree").innerText = fileType.toUpperCase();
+    }
+    else{
+      document.getElementById("displayImageThree").classList.remove('hidden');
+      document.getElementById("displayImageThree").src = URL.createObjectURL(uploadedImages[2]);
+    }
   }
   if(imagesLength >= 2){
     const imageTwo = document.getElementById("imageTwo").classList;
     imageTwo.contains('hidden') && imageTwo.remove('hidden');
-    document.getElementById("displayImageTwo").src = URL.createObjectURL(uploadedImages[1]);
+    const fileType = getFileType(uploadedImages[1].type);
+    if(otherFileType.includes(fileType)){
+      document.getElementById("displayFileTwo").classList.remove('hidden');
+      document.getElementById("displayFileTwo").innerText = fileType.toUpperCase();
+    }
+    else{
+      document.getElementById("displayImageTwo").classList.remove('hidden');
+      document.getElementById("displayImageTwo").src = URL.createObjectURL(uploadedImages[1]);
+    }
   }
   if(imagesLength >= 1){
     const imageOne = document.getElementById("imageOne").classList;
     imageOne.contains('hidden') && imageOne.remove('hidden');
-    document.getElementById("displayImageOne").src = URL.createObjectURL(uploadedImages[0]);
+    const fileType = getFileType(uploadedImages[0].type);
+    if(otherFileType.includes(fileType)){
+      document.getElementById("displayFileOne").classList.remove('hidden');
+      document.getElementById("displayFileOne").innerText = fileType.toUpperCase();
+    }
+    else{
+      document.getElementById("displayImageOne").classList.remove('hidden');
+      document.getElementById("displayImageOne").src = URL.createObjectURL(uploadedImages[0]);
+    }
   }
 };
 
