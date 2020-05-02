@@ -21,7 +21,7 @@
 
             <!-- Logo section -->
             <div class="flex w-full h-20 justify-center md:justify-start items-center px-10">
-                <img class="h-6 w-6" src="./img/greek.svg" alt="">
+                <img class="h-10 w-10" src="./img/zap.svg" alt="">
                 <!-- <span class="px-2 font-bold text-white tracking-wider">lektrofy</span> -->
             </div>
              <!-- End Logo section -->
@@ -70,35 +70,35 @@
 
 
         <!-- Form section  (Right Side)-->
-        <div class=" flex flex-col w-full md:w-3/5 h-full justify-center items-center">
-            <span class="font-bold text-3xl md:text-4xl text-gray-800 text-center pt-8">Create your Order</span>
-            <span class="font-semibold text-xl md:text-2xl text-gray-500 text-center"> Your one stop shop for all your electrical products</span>
+        <div class=" flex flex-col w-full md:w-3/5 h-auto md:h-full justify-center items-center ">
+            <div class="flex w-full h-auto font-bold text-3xl  md:text-4xl text-gray-800 text-center justify-center items-center pt-4">Create your Order</div>
+            <div class="flex w-full h-auto font-semibold text-xl md:text-2xl text-gray-500 text-center justify-center items-center"> Your one stop shop for all your electrical products</div>
 
-            <div class="w-full h-full py-4">
-                <form action="" class="flex flex-col w-full h-full  items-center">
+            <div class="flex w-full h-full py-4  justify-center items-center">
+                <form action="" class="flex flex-col w-full h-full  justify-center items-center">
                     
-                    <div class="flex w-4/5 md:w-3/5 rounded-md py-3 bg-white  items-center my-2 border-2 border-gray-400">
+                    <div class="flex w-4/5 md:w-3/5 rounded-md py-4 bg-white  items-center my-2 ">
                         <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd5e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i>
                         <input class="px-2 text-md placeholder-gray-400 text-gray-700 w-full outline-none" placeholder="Full name" id="customerName" onfocusout="validateName()" type="text">
                         <i class="px-4 hidden" id="validCustomerName"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#68d391" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></i>
                         <i class="px-4 hidden" id="invalidCustomerName"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
                     </div>
-
-                    <div class="flex w-4/5 md:w-3/5 rounded-md py-3 bg-white  items-center my-2 border-2 border-gray-400">
+                    
+                    <div class="flex w-4/5 md:w-3/5 rounded-md py-4 bg-white  items-center my-2 ">
                         <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd5e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></i>
                         <input class="px-2 text-md  placeholder-gray-400  text-gray-700 w-full outline-none" placeholder="Email" id="customerEmail" onfocusout="validateEmail()" type="email">
                         <i class="px-4 hidden" id="validCustomerEmail"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#68d391" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></i>
                         <i class="px-4 hidden" id="invalidCustomerEmail"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
                     </div>
 
-                    <div class="flex w-4/5 md:w-3/5 rounded-md py-3 bg-white  items-center my-2 border-2 border-gray-400">
+                    <div class="flex w-4/5 md:w-3/5 rounded-md py-4 bg-white  items-center my-2 ">
                         <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd5e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i>
                         <input class="px-2 text-md placeholder-gray-400  text-gray-700 w-full outline-none" placeholder="Mobile number" id="customerMobile" onfocusout="validateMobile()" type="text">
                         <i class="px-4 hidden" id="validCustomerMobile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#68d391" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></i>
                         <i class="px-4 hidden" id="invalidCustomerMobile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FA0E15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></i>
                     </div>
 
-                    <div class="flex w-4/5 md:w-3/5 rounded-md py-3 bg-white  items-center my-2 border-2 border-gray-400">
+                    <div class="flex w-4/5 md:w-3/5 rounded-md py-4 bg-white  items-center my-2 ">
                         <i class="px-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd5e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i>
                         <input class="px-2 text-md  placeholder-gray-400  text-gray-700 w-full outline-none" placeholder="Delivery address" id="customerAddress" onfocusout="validateAddress()" type="text">
                         <i class="px-4 hidden" id="validCustomerAddress"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#68d391" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></i>
@@ -181,7 +181,7 @@
                         <div id="checkbox-background" class="flex border-2 border-green-300 w-5 h-5 bg-white rounded-sm cursor-pointer bg-contain bg-center" onclick="checkboxClicked()">
 
                         </div>
-                        <span onclick="openModal()"  class="  flex px-2 text-gray-600 font-semibold cursor-pointer"> I agree to the Terms & Conditions</span>
+                        <span onclick="openModal()"  class="  flex px-2 text-gray-600 font-semibold cursor-pointer text-center text-sm md:text-xl"> I agree to the Terms & Conditions</span>
                         
                         
                     </div>
