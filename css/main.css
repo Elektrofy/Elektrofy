@@ -93,11 +93,6 @@ dialog::backdrop {
   
 }
 
-dialog .actions {
-  display: flex;
-  justify-content: space-around;
-}
-
 @keyframes appear {
   from {
     opacity: 0;
