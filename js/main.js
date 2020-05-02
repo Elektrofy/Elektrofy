@@ -1,5 +1,3 @@
-$(document).ready(function () {});
-
 let currentSlide = 0;
 let carouselArray = [
   { carouselText: "Havells", carouselImage: "havells.webp" },
