@@ -39,6 +39,7 @@ const clearFieldsandErrors = () => {
   updateDataObject(false, "mobileNo", "");
   updateDataObject(false, "address", "");
   uploadedImages = [];
+  document.getElementById("uploadFile").value = "";
   document.getElementById("customerName").value = "";
   toggleErrorIcon("hideIcons", "validCustomerName", "invalidCustomerName");
   document.getElementById("customerEmail").value = "";
@@ -53,7 +54,14 @@ const clearFieldsandErrors = () => {
   );
   removeImages();
   document.getElementById("placeOrderText").innerText = "Place Order";
-  document.getElementById("placeOrderButton").disabled = false;
+  const placeOrderButton = document.getElementById("placeOrderButton");
+  placeOrderButton.disabled = true;
+  placeOrderButton.classList.add("opacity-50");
+  placeOrderButton.classList.add("cursor-not-allowed");
+  placeOrderButton.classList.remove("cursor-pointer");
+  document
+    .getElementById("checkbox-background")
+    .classList.remove("checkboxChecked");
 };
 
 // Validation Functions
@@ -243,6 +251,7 @@ const placeOrder = () => {
     Object.keys(dataObject).forEach((field) => {
       formData.append(field, dataObject[field].value);
     });
+    formData.append("remarks", "Hello");
     uploadedImages.forEach((image) => {
       formData.append("images", image);
     });
@@ -250,14 +259,29 @@ const placeOrder = () => {
       method: "POST",
       body: formData,
     };
-    document.getElementById("placeOrderText").innerText = "Placing your order";
+    document.getElementById("orderPlacingModal").showModal();
+    document.getElementById("orderModalText").innerText =
+      "Please hold on a second we are placing your order...";
     document.getElementById("placeOrderButton").disabled = true;
     fetch("https://bijliman-backend.herokuapp.com/api/orders", options)
       .then((res) => {
-        clearFieldsandErrors();
-        console.log(res);
+        res
+          .json()
+          .then((data) => ({
+            data: data,
+            status: res.status,
+          }))
+          .then((res) => {
+            clearFieldsandErrors();
+            document.getElementById(
+              "orderModalText"
+            ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}`;
+            setTimeout(closeOrderModal, 3000);
+          });
       })
       .catch((err) => {
+        document.getElementById("orderModalText").innerText =
+          "Some Error has occured, Please retry";
         console.log(err);
       });
   } else {
@@ -266,12 +290,19 @@ const placeOrder = () => {
 
 const checkboxClicked = () => {
   const checkbox = document.getElementById("checkbox-background");
+  const placeOrderButton = document.getElementById("placeOrderButton");
 
   if (!checkbox.classList.contains("checkboxChecked")) {
-    document.getElementById("placeOrderButton").disabled = false;
+    placeOrderButton.disabled = false;
+    placeOrderButton.classList.remove("opacity-50");
+    placeOrderButton.classList.remove("cursor-not-allowed");
+    placeOrderButton.classList.add("cursor-pointer");
     checkbox.classList.add("checkboxChecked");
   } else {
-    document.getElementById("placeOrderButton").disabled = true;
+    placeOrderButton.disabled = true;
+    placeOrderButton.classList.add("opacity-50");
+    placeOrderButton.classList.add("cursor-not-allowed");
+    placeOrderButton.classList.remove("cursor-pointer");
     checkbox.classList.remove("checkboxChecked");
   }
 };
@@ -279,6 +310,11 @@ const checkboxClicked = () => {
 const closeFunction = () => {
   document.getElementById("myDialog").close();
 };
+
 const openModal = () => {
   document.getElementById("myDialog").showModal();
+};
+
+const closeOrderModal = () => {
+  document.getElementById("orderPlacingModal").close();
 };
