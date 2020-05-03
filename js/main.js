@@ -15,6 +15,11 @@ const emailRegex =
 const mobileRegex = "^[6-9]{1}[0-9]{9}$";
 const addressRegex = "[A-Za-z0-9.-s,]";
 const otherFileType = ["pdf", "xlsx", "docx"];
+const NAME_ERROR = "Please enter a valid name between 6-20 characters";
+const EMAIL_ERROR = "Please enter a valid Email ID";
+const MOBILE_ERROR = "Please enter a valid Mobile Number";
+const ADDRESS_ERROR = "Please enter a valid Address";
+const UPLOAD_MAXIMUM_ERROR = "Maximum 3 Files are allowed to upload";
 let uploadedImages = [];
 let dataObject = {
   name: {
@@ -92,12 +97,27 @@ const updateDataObject = (isValid, key, value = "") => {
   }
 };
 
+const removeError = (divId) => {
+  const errorDiv = document.getElementById(divId).classList;
+  !errorDiv.contains("hidden") && errorDiv.add("hidden");
+}
+
+const showError = (isValid, divId, textID, errorText) => {
+  if(!isValid){
+    const errorDiv = document.getElementById(divId).classList;
+    document.getElementById(textID).innerText = errorText
+    errorDiv.contains('hidden') && errorDiv.remove('hidden');
+    setTimeout(() => removeError(divId),3000);
+  }
+}
+
 const validateName = () => {
   const name = document.getElementById("customerName").value;
   const isNameValid =
-    name.length > 5 && name.length < 20 && name.match(nameRegex);
+    name.length > 5 && name.length <= 20 && name.match(nameRegex);
   toggleErrorIcon(!!isNameValid, "validCustomerName", "invalidCustomerName");
   updateDataObject(!!isNameValid, "name", name);
+  showError(!!isNameValid, "nameErrorDiv", "nameErrorText", NAME_ERROR);
 };
 
 const validateEmail = () => {
@@ -105,6 +125,7 @@ const validateEmail = () => {
   const isEmailValid = email.match(emailRegex);
   toggleErrorIcon(!!isEmailValid, "validCustomerEmail", "invalidCustomerEmail");
   updateDataObject(!!isEmailValid, "email", email);
+  showError(!!isEmailValid, "emailErrorDiv", "emailErrorText", EMAIL_ERROR);
 };
 
 const validateMobile = () => {
@@ -116,6 +137,7 @@ const validateMobile = () => {
     "invalidCustomerMobile"
   );
   updateDataObject(!!isMobileValid, "mobileNo", mobile);
+  showError(!!isMobileValid, "mobileErrorDiv", "mobileErrorText", MOBILE_ERROR);
 };
 
 const validateAddress = () => {
@@ -128,6 +150,7 @@ const validateAddress = () => {
     "invalidCustomerAddress"
   );
   updateDataObject(!!isAddressValid, "address", address);
+  showError(!!isAddressValid, "addressErrorDiv", "addressErrorText", ADDRESS_ERROR);
 };
 
 // Carousel Functions
@@ -227,6 +250,9 @@ const uploadImage = () => {
   document.getElementById("uploadFile").value = "";
   if (uploadedImages.length + newUploadedImages.length <= 3)
     uploadedImages = uploadedImages.concat(newUploadedImages);
+  else if(uploadedImages.length + newUploadedImages.length > 3){
+    showError(false, "uploadErrorDiv", "uploadErrorText", UPLOAD_MAXIMUM_ERROR);
+  }
   if (uploadedImages.length > 0 && uploadedImages.length <= 3) {
     const uploadFileText = document.getElementById("uploadFileText").classList;
     !uploadFileText.contains("hidden") && uploadFileText.add("hidden");
