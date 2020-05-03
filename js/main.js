@@ -220,6 +220,7 @@ const uploadImage = () => {
   let newUploadedImages = Array.from(
     document.getElementById("uploadFile").files
   );
+  document.getElementById("uploadFile").value = "";
   if (uploadedImages.length + newUploadedImages.length <= 3)
     uploadedImages = uploadedImages.concat(newUploadedImages);
   if (uploadedImages.length > 0 && uploadedImages.length <= 3) {
