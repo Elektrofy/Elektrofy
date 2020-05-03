@@ -1,8 +1,8 @@
 let currentSlide = 0;
 let carouselArray = [
-  { carouselText: "Havells", carouselImage: "havells.webp" },
-  { carouselText: "Crabtree", carouselImage: "crabtree.webp" },
-  { carouselText: "Phillips", carouselImage: "phillips.webp" },
+  { carouselText: "Havells", carouselImage: "havells.jpg" },
+  { carouselText: "Crabtree", carouselImage: "crabtree.jpg" },
+  { carouselText: "Phillips", carouselImage: "phillips.jpg" },
 ];
 
 const nameRegex = "^[a-zA-Z.\\s]*$";
