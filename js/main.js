@@ -5,6 +5,10 @@ let carouselArray = [
   { carouselText: "Phillips", carouselImage: "phillips.jpg" },
 ];
 
+
+dialogPolyfill.registerDialog(document.getElementById("myDialog"));
+dialogPolyfill.registerDialog(document.getElementById("orderPlacingModal"));
+
 const nameRegex = "^[a-zA-Z.\\s]*$";
 const emailRegex =
   "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -305,6 +309,8 @@ const checkboxClicked = () => {
     checkbox.classList.remove("checkboxChecked");
   }
 };
+
+
 
 const closeFunction = () => {
   document.getElementById("myDialog").close();
