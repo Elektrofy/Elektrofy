@@ -1,8 +1,6 @@
 let currentSlide = 0;
 let carouselArray = [
-  { carouselText: "Havells", carouselImage: "havells.jpg" },
-  { carouselText: "Crabtree", carouselImage: "crabtree.jpg" },
-  { carouselText: "Phillips", carouselImage: "phillips.jpg" },
+  { carouselText: "Pritam", carouselImage: "pritam.png", pdf :"pritam.pdf" }
 ];
 
 
@@ -155,9 +153,9 @@ const validateAddress = () => {
 
 // Carousel Functions
 
-setInterval(function () {
-  onNextBtnClick();
-}, 4500);
+// setInterval(function () {
+//   onNextBtnClick();
+// }, 4500);
 
 const onPrevBtnClick = () => {
   const carouselImageDiv = document.getElementById("carouselImage");
