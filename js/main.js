@@ -1,5 +1,7 @@
 let currentSlide = 0;
 let carouselArray = [
+  { carouselText: "Pritam", carouselImage: "pritam3.png", pdf :"pritam.pdf" },
+  { carouselText: "Pritam", carouselImage: "pritam2.png", pdf :"pritam.pdf" },
   { carouselText: "Pritam", carouselImage: "pritam.png", pdf :"pritam.pdf" }
 ];
 
