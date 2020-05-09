@@ -143,7 +143,7 @@ const validateMobile = () => {
 const validateAddress = () => {
   const address = document.getElementById("customerAddress").value;
   const isAddressValid =
-    address.length > 10 && address.length < 30 && address.match(addressRegex);
+    address.length > 10 && address.length < 30;
   toggleErrorIcon(
     !!isAddressValid,
     "validCustomerAddress",
