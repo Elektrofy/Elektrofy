@@ -1,10 +1,9 @@
 let currentSlide = 0;
 let carouselArray = [
-  { carouselText: "Pritam", carouselImage: "pritam3.png", pdf :"pritam.pdf" },
-  { carouselText: "Pritam", carouselImage: "pritam2.png", pdf :"pritam.pdf" },
-  { carouselText: "Pritam", carouselImage: "pritam.png", pdf :"pritam.pdf" }
+  { carouselText: "Pritam", carouselImage: "pritam3.png", pdf: "pritam.pdf" },
+  { carouselText: "Pritam", carouselImage: "pritam2.png", pdf: "pritam.pdf" },
+  { carouselText: "Pritam", carouselImage: "pritam.png", pdf: "pritam.pdf" },
 ];
-
 
 dialogPolyfill.registerDialog(document.getElementById("myDialog"));
 dialogPolyfill.registerDialog(document.getElementById("orderPlacingModal"));
@@ -100,16 +99,16 @@ const updateDataObject = (isValid, key, value = "") => {
 const removeError = (divId) => {
   const errorDiv = document.getElementById(divId).classList;
   !errorDiv.contains("hidden") && errorDiv.add("hidden");
-}
+};
 
 const showError = (isValid, divId, textID, errorText) => {
-  if(!isValid){
+  if (!isValid) {
     const errorDiv = document.getElementById(divId).classList;
-    document.getElementById(textID).innerText = errorText
-    errorDiv.contains('hidden') && errorDiv.remove('hidden');
-    setTimeout(() => removeError(divId),3000);
+    document.getElementById(textID).innerText = errorText;
+    errorDiv.contains("hidden") && errorDiv.remove("hidden");
+    setTimeout(() => removeError(divId), 3000);
   }
-}
+};
 
 const validateName = () => {
   const name = document.getElementById("customerName").value;
@@ -142,15 +141,19 @@ const validateMobile = () => {
 
 const validateAddress = () => {
   const address = document.getElementById("customerAddress").value;
-  const isAddressValid =
-    address.length > 10 && address.length < 30;
+  const isAddressValid = address.length > 10 && address.length < 30;
   toggleErrorIcon(
     !!isAddressValid,
     "validCustomerAddress",
     "invalidCustomerAddress"
   );
   updateDataObject(!!isAddressValid, "address", address);
-  showError(!!isAddressValid, "addressErrorDiv", "addressErrorText", ADDRESS_ERROR);
+  showError(
+    !!isAddressValid,
+    "addressErrorDiv",
+    "addressErrorText",
+    ADDRESS_ERROR
+  );
 };
 
 // Carousel Functions
@@ -164,8 +167,7 @@ const onPrevBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide - 1 < 0 ? carouselArray.length - 1 : --currentSlide;
-  carouselImageDiv.src =
-    "../img/" + carouselArray[currentSlide].carouselImage;
+  carouselImageDiv.src = "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
 };
 
@@ -174,8 +176,7 @@ const onNextBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide + 1 > carouselArray.length - 1 ? 0 : ++currentSlide;
-  carouselImageDiv.src =
-    "../img/" + carouselArray[currentSlide].carouselImage;
+  carouselImageDiv.src = "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
 };
 
@@ -250,7 +251,7 @@ const uploadImage = () => {
   document.getElementById("uploadFile").value = "";
   if (uploadedImages.length + newUploadedImages.length <= 3)
     uploadedImages = uploadedImages.concat(newUploadedImages);
-  else if(uploadedImages.length + newUploadedImages.length > 3){
+  else if (uploadedImages.length + newUploadedImages.length > 3) {
     showError(false, "uploadErrorDiv", "uploadErrorText", UPLOAD_MAXIMUM_ERROR);
   }
   if (uploadedImages.length > 0 && uploadedImages.length <= 3) {
@@ -271,11 +272,9 @@ const placeOrder = () => {
   const isReadyforSubmit = Object.values(dataObject).findIndex(
     (field) => field.isValid === false
   );
-  if (
-    isReadyforSubmit === -1 &&
-    uploadedImages.length > 0 &&
-    uploadedImages.length <= 3
-  ) {
+  // uploadedImages.length > 0 &&
+  //   uploadedImages.length <= 3
+  if (isReadyforSubmit === -1) {
     const formData = new FormData();
     Object.keys(dataObject).forEach((field) => {
       formData.append(field, dataObject[field].value);
@@ -339,8 +338,6 @@ const checkboxClicked = () => {
     checkbox.classList.remove("checkboxChecked");
   }
 };
-
-
 
 const closeFunction = () => {
   document.getElementById("myDialog").close();
