@@ -164,8 +164,8 @@ const onPrevBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide - 1 < 0 ? carouselArray.length - 1 : --currentSlide;
-  carouselImageDiv.style.backgroundImage =
-    "url(../img/" + carouselArray[currentSlide].carouselImage + ")";
+  carouselImageDiv.src =
+    "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
 };
 
@@ -174,8 +174,8 @@ const onNextBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide + 1 > carouselArray.length - 1 ? 0 : ++currentSlide;
-  carouselImageDiv.style.backgroundImage =
-    "url(../img/" + carouselArray[currentSlide].carouselImage + ")";
+  carouselImageDiv.src =
+    "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
 };
 
