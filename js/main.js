@@ -314,6 +314,10 @@ const placeOrder = () => {
         console.log(err);
       });
   } else {
+    validateName();
+    validateMobile();
+    validateEmail();
+    validateAddress();
   }
 };
 
