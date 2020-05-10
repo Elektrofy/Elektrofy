@@ -146,7 +146,7 @@ const validateMobile = () => {
 
 const validateAddress = () => {
   const address = document.getElementById("customerAddress").value;
-  const isAddressValid = address.length > 10 && address.length < 30;
+  const isAddressValid = address.length > 10 && address.length < 100;
   toggleErrorIcon(
     !!isAddressValid,
     "validCustomerAddress",
