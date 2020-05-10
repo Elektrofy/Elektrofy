@@ -17,7 +17,7 @@
     <section class="flex flex-col md:flex-row w-full md:h-screen">
 
         <!-- Logo and Carousel section (Left Side) -->
-        <div class="flex flex-col w-full md:w-2/5 h-full bg-custom-gradient bg-center">
+        <div class="flex flex-col w-full md:w-2/5 pb-10 md:pb-0 h-full bg-custom-gradient bg-center">
 
             <!-- Logo section -->
             <div class="flex w-full h-20 justify-center md:justify-start items-center px-10">
@@ -42,11 +42,11 @@
                             <div class="flex flex-col w-full h-full justify-center items-center ">
 
                                 <!-- Carousel Image Div -->
-                                <div onclick="openPDF()" class="cursor-pointer flex flex-col w-56 md:w-full h-36 md:h-64 bg-carousel-default rounded-md justify-end items-center bg-cover bg-center bg-no-repeat shadow-lg">
-                                    <img src="../img/pritam3.png" id="carouselImage" class="max-h-full max-w-full">
+                                <div id="carouselImage" onclick="openPDF()" class=" border-2 border-gray-500 cursor-pointer flex flex-col w-full h-48 md:h-64 bg-white rounded-md justify-end items-center bg-contain bg-center bg-no-repeat shadow-lg">
+                                    
                                 </div>
                                 <!-- Carousel Text Div -->
-                                <div class="flex w-3/5 h-16 bg-white  rounded-md -my-10 shadow-xl justify-center items-center">
+                                <div class="flex w-3/5 h-16 bg-white border-2 border-gray-700 rounded-md -my-10 shadow-xl justify-center items-center">
                                     <span id="carouselText" class=" font-bold text-gray-700  text-lg md:text-2xl"> Pritam </span>
                                 </div>
                                 <div class="flex w-3/5 h-10 "></div>
@@ -130,10 +130,10 @@
                     </div>
 
                     <!-- Upload Files section -->
-                    <div class="flex w-4/5 md:w-3/5 rounded-md h-40 bg-white my-2 justify-between border-solid border-2 border-gray-500">
+                    <div class="flex w-4/5 md:w-3/5 rounded-md h-24 md:h-40 bg-white my-2 justify-between border-solid border-2 border-gray-500">
 
                         <!-- Upload Files Text -->
-                        <div id="uploadFileText" class=" flex w-3/4 h-full justify-center  items-center text-md text-opacity-50  text-gray-600">
+                        <div id="uploadFileText" class=" flex w-3/4 h-full justify-center  items-center text-md text-opacity-50  text-gray-400">
                             Upload Files
                         </div>
 
@@ -141,15 +141,15 @@
                         <div id="imageOne" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- First Image -->
-                            <div class="w-4/5 h-24 bg-gray-200 rounded-md flex justify-center items-center">
+                            <div class="w-4/5 h-16 md:h-24 bg-gray-200 rounded-md flex justify-center items-center">
                                 <div id="displayFileOne" class="hidden text-center flex justify-center items-center font-bold text-gray-500 text-xl">
                                 </div>
                                 <img id="displayImageOne" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="cursor-pointer flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(0)">
-                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            <div class="cursor-pointer flex w-4/5 h-6 md:h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(0)">
+                                <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></i>
                             </div>
 
                         </div>
@@ -158,15 +158,15 @@
                         <div id="imageTwo" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- Second Image -->
-                            <div class="w-4/5 h-24 bg-gray-200 rounded-md flex justify-center items-center">
+                            <div class="w-4/5 h-16 md:h-24 bg-gray-200 rounded-md flex justify-center items-center">
                                 <div id="displayFileTwo" class="hidden text-center flex justify-center items-center font-bold text-gray-500 text-xl">
                                 </div>
                                 <img id="displayImageTwo" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="cursor-pointer flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(1)">
-                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            <div class="cursor-pointer flex w-4/5 h-6 md:h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(1)">
+                                <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></i>
                             </div>
 
                         </div>
@@ -175,15 +175,15 @@
                         <div id="imageThree" class="hidden flex flex-col w-1/4 h-full justify-around items-center">
 
                             <!-- Third Image -->
-                            <div class="w-4/5 h-24 bg-gray-200 rounded-md flex justify-center items-center">
+                            <div class="w-4/5 h-16 md:h-24 bg-gray-200 rounded-md flex justify-center items-center">
                                 <div id="displayFileThree" class="hidden text-center flex justify-center items-center font-bold text-gray-500 text-xl">
                                 </div>
                                 <img id="displayImageThree" class="hidden h-full w-full rounded-md"></img>
                             </div>
 
                             <!-- Delete  -->
-                            <div class="cursor-pointer flex w-4/5 h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(2)">
-                                <i><svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></i>
+                            <div class="cursor-pointer flex w-4/5 h-6 md:h-8 bg-gray-800 rounded-md justify-center items-center" onclick="deleteImage(2)">
+                                <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></i>
                             </div>
 
                         </div>
