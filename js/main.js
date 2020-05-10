@@ -1,9 +1,14 @@
 let currentSlide = 0;
 let carouselArray = [
   { carouselText: "Pritam", carouselImage: "pritam3.png", pdf: "pritam.pdf" },
-  { carouselText: "Pritam", carouselImage: "pritam2.png", pdf: "pritam.pdf" },
-  { carouselText: "Pritam", carouselImage: "pritam.png", pdf: "pritam.pdf" },
+  // { carouselText: "Pritam", carouselImage: "pritam2.png", pdf: "pritam.pdf" },
+  // { carouselText: "Pritam", carouselImage: "pritam.png", pdf: "pritam.pdf" },
+  { carouselText: "Havells", carouselImage: "havells.png", pdf: "Havells.pdf" },
+  { carouselText: "GM", carouselImage: "GM.png", pdf: "GM.pdf" },
+  { carouselText: "Crompton", carouselImage: "Crompton.png", pdf: "Crompton.pdf" },
+  { carouselText: "Orient", carouselImage: "Orient.png", pdf: "Orient.pdf" },
 ];
+let currentPdfSelected = carouselArray[0].pdf;
 
 dialogPolyfill.registerDialog(document.getElementById("myDialog"));
 dialogPolyfill.registerDialog(document.getElementById("orderPlacingModal"));
@@ -169,6 +174,7 @@ const onPrevBtnClick = () => {
     currentSlide - 1 < 0 ? carouselArray.length - 1 : --currentSlide;
   carouselImageDiv.src = "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
+  currentPdfSelected = carouselArray[currentSlide].pdf;
 };
 
 const onNextBtnClick = () => {
@@ -178,6 +184,7 @@ const onNextBtnClick = () => {
     currentSlide + 1 > carouselArray.length - 1 ? 0 : ++currentSlide;
   carouselImageDiv.src = "../img/" + carouselArray[currentSlide].carouselImage;
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
+  currentPdfSelected = carouselArray[currentSlide].pdf;
 };
 
 // File Upload UI functions
@@ -350,3 +357,7 @@ const openModal = () => {
 const closeOrderModal = () => {
   document.getElementById("orderPlacingModal").close();
 };
+
+const openPDF = () => {
+  window.open(`./img/${currentPdfSelected}`,'_blank');
+}
