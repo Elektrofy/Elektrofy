@@ -277,8 +277,6 @@ const placeOrder = () => {
   const isReadyforSubmit = Object.values(dataObject).findIndex(
     (field) => field.isValid === false
   );
-  // uploadedImages.length > 0 &&
-  //   uploadedImages.length <= 3
   if (isReadyforSubmit === -1) {
     const formData = new FormData();
     Object.keys(dataObject).forEach((field) => {
