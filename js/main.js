@@ -15,7 +15,6 @@ const nameRegex = "^[a-zA-Z.\\s]*$";
 const emailRegex =
   "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 const mobileRegex = "^(?:(?:\\+|0{0,2})91(\\s*[\\-]\\s*)?|[0]?)?[789]\\d{9}$";
-const addressRegex = "[A-Za-z0-9.-s,]";
 const otherFileType = ["pdf", "xlsx", "docx"];
 const NAME_ERROR = "Please enter a valid name between 6-20 characters";
 const EMAIL_ERROR = "Please enter a valid Email ID";
