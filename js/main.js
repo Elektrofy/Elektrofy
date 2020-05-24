@@ -303,11 +303,11 @@ const placeOrder = () => {
           }))
           .then((res) => {
             clearFieldsandErrors();
+            document.getElementById("OrderConfirmationTitle").classList.remove('hidden');
             document.getElementById(
               "orderModalText"
             ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}
              We will contact you shortly for further details. For any queries please contact us at +918017635811`;
-            setTimeout(closeOrderModal, 3000);
           });
       })
       .catch((err) => {
@@ -352,6 +352,7 @@ const openModal = () => {
 
 const closeOrderModal = () => {
   document.getElementById("orderPlacingModal").close();
+  document.getElementById("OrderConfirmationTitle").classList.add('hidden');
 };
 
 const openPDF = () => {
