@@ -81,7 +81,10 @@ body {
   background-image: url(../img/check.svg);
 }
 
-
+#itemsDescription::placeholder{
+  text-align: center;
+  line-height: 50px;
+}
 
 
 dialog[open] {

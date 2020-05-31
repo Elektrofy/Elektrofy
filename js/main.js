@@ -55,6 +55,7 @@ const clearFieldsandErrors = () => {
   document.getElementById("customerMobile").value = "";
   toggleErrorIcon("hideIcons", "validCustomerMobile", "invalidCustomerMobile");
   document.getElementById("customerAddress").value = "";
+  document.getElementById("itemsDescription").value = "";
   toggleErrorIcon(
     "hideIcons",
     "validCustomerAddress",
@@ -281,7 +282,8 @@ const placeOrder = () => {
     Object.keys(dataObject).forEach((field) => {
       formData.append(field, dataObject[field].value);
     });
-    formData.append("remarks", "Hello");
+    alert(document.getElementById('itemsDescription').value);
+    formData.append("remarks", document.getElementById('itemsDescription').value);
     uploadedImages.forEach((image) => {
       formData.append("images", image);
     });
@@ -302,12 +304,21 @@ const placeOrder = () => {
             status: res.status,
           }))
           .then((res) => {
-            clearFieldsandErrors();
-            document.getElementById("OrderConfirmationTitle").classList.remove('hidden');
-            document.getElementById(
-              "orderModalText"
-            ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}
-             We will contact you shortly for further details. For any queries please contact us at +918017635811`;
+            if(res.status !== 500)
+            {
+              clearFieldsandErrors();
+              document.getElementById("OrderConfirmationTitle").classList.remove('hidden');
+              document.getElementById(
+                "orderModalText"
+              ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}
+              We will contact you shortly for further details. For any queries please contact us at +918017635811`;
+            }
+            else
+            {
+              document.getElementById("orderModalText").innerText =
+              "Some Error has occured, Please retry";
+              console.log(res);
+            }
           });
       })
       .catch((err) => {
