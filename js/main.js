@@ -282,7 +282,6 @@ const placeOrder = () => {
     Object.keys(dataObject).forEach((field) => {
       formData.append(field, dataObject[field].value);
     });
-    alert(document.getElementById('itemsDescription').value);
     formData.append("remarks", document.getElementById('itemsDescription').value);
     uploadedImages.forEach((image) => {
       formData.append("images", image);
