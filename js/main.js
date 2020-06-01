@@ -28,7 +28,7 @@ let dataObject = {
     value: "",
   },
   email: {
-    isValid: false,
+    isValid: true,
     value: "",
   },
   mobileNo: {
