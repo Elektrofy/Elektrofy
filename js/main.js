@@ -122,13 +122,13 @@ const validateName = () => {
   showError(!!isNameValid, "nameErrorDiv", "nameErrorText", NAME_ERROR);
 };
 
-const validateEmail = () => {
-  const email = document.getElementById("customerEmail").value;
-  const isEmailValid = email.match(emailRegex);
-  toggleErrorIcon(!!isEmailValid, "validCustomerEmail", "invalidCustomerEmail");
-  updateDataObject(!!isEmailValid, "email", email);
-  showError(!!isEmailValid, "emailErrorDiv", "emailErrorText", EMAIL_ERROR);
-};
+// const validateEmail = () => {
+//   const email = document.getElementById("customerEmail").value;
+//   const isEmailValid = email.match(emailRegex);
+//   toggleErrorIcon(!!isEmailValid, "validCustomerEmail", "invalidCustomerEmail");
+//   updateDataObject(!!isEmailValid, "email", email);
+//   showError(!!isEmailValid, "emailErrorDiv", "emailErrorText", EMAIL_ERROR);
+// };
 
 const validateMobile = () => {
   const mobile = document.getElementById("customerMobile").value;
@@ -310,7 +310,7 @@ const placeOrder = () => {
               document.getElementById(
                 "orderModalText"
               ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}
-              We will contact you shortly for further details. For any queries please contact us at +918017635811`;
+              We will contact you shortly for further details. For any queries please contact us at +91-6291838148`;
             }
             else
             {
@@ -328,7 +328,7 @@ const placeOrder = () => {
   } else {
     validateName();
     validateMobile();
-    validateEmail();
+    // validateEmail();
     validateAddress();
   }
 };
