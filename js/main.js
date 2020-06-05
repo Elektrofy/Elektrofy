@@ -309,7 +309,7 @@ const placeOrder = () => {
               document.getElementById("OrderConfirmationTitle").classList.remove('hidden');
               document.getElementById(
                 "orderModalText"
-              ).innerText = `Your order has been placed with Order Id: BIJLI000${res.data.order}
+              ).innerText = `Your order has been placed with Order Id: ELEK${res.data.order}
               We will contact you shortly for further details. For any queries please contact us at +91-6291838148`;
             }
             else
