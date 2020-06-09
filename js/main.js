@@ -3,7 +3,11 @@ let carouselArray = [
   { carouselText: "Pritam", carouselImage: "pritam3.png", pdf: "pritam.pdf" },
   { carouselText: "Havells", carouselImage: "havells.png", pdf: "Havells.pdf" },
   { carouselText: "GM", carouselImage: "GM.png", pdf: "GM.pdf" },
-  { carouselText: "Crompton", carouselImage: "Crompton.png", pdf: "Crompton.pdf" },
+  {
+    carouselText: "Crompton",
+    carouselImage: "Crompton.png",
+    pdf: "Crompton.pdf",
+  },
   { carouselText: "Orient", carouselImage: "Orient.png", pdf: "Orient.pdf" },
 ];
 let currentPdfSelected = carouselArray[0].pdf;
@@ -42,19 +46,20 @@ let dataObject = {
 };
 
 const clearFieldsandErrors = () => {
-  updateDataObject(false, "name", "");
-  updateDataObject(false, "email", "");
-  updateDataObject(false, "mobileNo", "");
-  updateDataObject(false, "address", "");
+  // updateDataObject(false, "name", "");
+  // updateDataObject(false, "email", "");
+  // updateDataObject(false, "mobileNo", "");
+  // updateDataObject(false, "address", "");
   uploadedImages = [];
   document.getElementById("uploadFile").value = "";
-  document.getElementById("customerName").value = "";
-  toggleErrorIcon("hideIcons", "validCustomerName", "invalidCustomerName");
-  document.getElementById("customerEmail").value = "";
-  toggleErrorIcon("hideIcons", "validCustomerEmail", "invalidCustomerEmail");
-  document.getElementById("customerMobile").value = "";
-  toggleErrorIcon("hideIcons", "validCustomerMobile", "invalidCustomerMobile");
-  document.getElementById("customerAddress").value = "";
+  // document.getElementById("customerName").value = "";
+  // toggleErrorIcon("hideIcons", "validCustomerName", "invalidCustomerName");
+  // document.getElementById("customerEmail").value = "";
+  // toggleErrorIcon("hideIcons", "validCustomerEmail", "invalidCustomerEmail");
+  // document.getElementById("customerMobile").value = "";
+  // toggleErrorIcon("hideIcons", "validCustomerMobile", "invalidCustomerMobile");
+  // document.getElementById("customerAddress").value = "";
+  // toggleErrorIcon("hideIcons", "validCustomerAddress", "invalidCustomerAddress");
   document.getElementById("itemsDescription").value = "";
   toggleErrorIcon(
     "hideIcons",
@@ -93,6 +98,7 @@ const updateDataObject = (isValid, key, value = "") => {
   if (isValid) {
     dataObject[key].value = value;
     dataObject[key].isValid = true;
+    localStorage.setItem(key, value);
   } else {
     dataObject[key].value = value;
     dataObject[key].isValid = false;
@@ -122,13 +128,22 @@ const validateName = () => {
   showError(!!isNameValid, "nameErrorDiv", "nameErrorText", NAME_ERROR);
 };
 
-// const validateEmail = () => {
-//   const email = document.getElementById("customerEmail").value;
-//   const isEmailValid = email.match(emailRegex);
-//   toggleErrorIcon(!!isEmailValid, "validCustomerEmail", "invalidCustomerEmail");
-//   updateDataObject(!!isEmailValid, "email", email);
-//   showError(!!isEmailValid, "emailErrorDiv", "emailErrorText", EMAIL_ERROR);
-// };
+const validateEmail = () => {
+  const email = document.getElementById("customerEmail").value;
+  if (email) {
+    const isEmailValid = email.match(emailRegex);
+    toggleErrorIcon(
+      !!isEmailValid,
+      "validCustomerEmail",
+      "invalidCustomerEmail"
+    );
+    updateDataObject(!!isEmailValid, "email", email);
+    showError(!!isEmailValid, "emailErrorDiv", "emailErrorText", EMAIL_ERROR);
+  } else {
+    updateDataObject(true, "email", email);
+    toggleErrorIcon("hideIcons", "validCustomerEmail", "invalidCustomerEmail");
+  }
+};
 
 const validateMobile = () => {
   const mobile = document.getElementById("customerMobile").value;
@@ -170,7 +185,8 @@ const onPrevBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide - 1 < 0 ? carouselArray.length - 1 : --currentSlide;
-    carouselImageDiv.style.backgroundImage ="url(../img/" + carouselArray[currentSlide].carouselImage + ")";
+  carouselImageDiv.style.backgroundImage =
+    "url(../img/" + carouselArray[currentSlide].carouselImage + ")";
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
   currentPdfSelected = carouselArray[currentSlide].pdf;
 };
@@ -180,7 +196,8 @@ const onNextBtnClick = () => {
   const carouselTextDiv = document.getElementById("carouselText");
   currentSlide =
     currentSlide + 1 > carouselArray.length - 1 ? 0 : ++currentSlide;
-    carouselImageDiv.style.backgroundImage ="url(../img/" + carouselArray[currentSlide].carouselImage + ")";
+  carouselImageDiv.style.backgroundImage =
+    "url(../img/" + carouselArray[currentSlide].carouselImage + ")";
   carouselTextDiv.textContent = carouselArray[currentSlide].carouselText;
   currentPdfSelected = carouselArray[currentSlide].pdf;
 };
@@ -282,7 +299,10 @@ const placeOrder = () => {
     Object.keys(dataObject).forEach((field) => {
       formData.append(field, dataObject[field].value);
     });
-    formData.append("remarks", document.getElementById('itemsDescription').value);
+    formData.append(
+      "remarks",
+      document.getElementById("itemsDescription").value
+    );
     uploadedImages.forEach((image) => {
       formData.append("images", image);
     });
@@ -303,19 +323,18 @@ const placeOrder = () => {
             status: res.status,
           }))
           .then((res) => {
-            if(res.status !== 500)
-            {
+            if (res.status !== 500) {
               clearFieldsandErrors();
-              document.getElementById("OrderConfirmationTitle").classList.remove('hidden');
+              document
+                .getElementById("OrderConfirmationTitle")
+                .classList.remove("hidden");
               document.getElementById(
                 "orderModalText"
               ).innerText = `Your order has been placed with Order Id: ELEK${res.data.order}
               We will contact you shortly for further details. For any queries please contact us at +91-6291838148`;
-            }
-            else
-            {
+            } else {
               document.getElementById("orderModalText").innerText =
-              "Some Error has occured, Please retry";
+                "Some Error has occured, Please retry";
               console.log(res);
             }
           });
@@ -328,7 +347,7 @@ const placeOrder = () => {
   } else {
     validateName();
     validateMobile();
-    // validateEmail();
+    validateEmail();
     validateAddress();
   }
 };
@@ -362,9 +381,16 @@ const openModal = () => {
 
 const closeOrderModal = () => {
   document.getElementById("orderPlacingModal").close();
-  document.getElementById("OrderConfirmationTitle").classList.add('hidden');
+  document.getElementById("OrderConfirmationTitle").classList.add("hidden");
 };
 
 const openPDF = () => {
-  window.open(`./img/${currentPdfSelected}`,'_blank');
-}
+  window.open(`./img/${currentPdfSelected}`, "_blank");
+};
+
+window.addEventListener('load', function () {
+  document.getElementById("customerName").value = localStorage.getItem('name') || '';
+  document.getElementById("customerEmail").value = localStorage.getItem('email') || '';
+  document.getElementById("customerMobile").value = localStorage.getItem('mobileNo') || '';
+  document.getElementById("customerAddress").value = localStorage.getItem('address') || '';
+});
