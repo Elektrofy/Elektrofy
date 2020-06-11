@@ -388,9 +388,13 @@ const openPDF = () => {
   window.open(`./img/${currentPdfSelected}`, "_blank");
 };
 
-window.addEventListener('load', function () {
-  document.getElementById("customerName").value = localStorage.getItem('name') || '';
-  document.getElementById("customerEmail").value = localStorage.getItem('email') || '';
-  document.getElementById("customerMobile").value = localStorage.getItem('mobileNo') || '';
-  document.getElementById("customerAddress").value = localStorage.getItem('address') || '';
+window.addEventListener("load", function () {
+  document.getElementById("customerName").value =
+    localStorage.getItem("name") || "";
+  document.getElementById("customerEmail").value =
+    localStorage.getItem("email") || "";
+  document.getElementById("customerMobile").value =
+    localStorage.getItem("mobileNo") || "";
+  document.getElementById("customerAddress").value =
+    localStorage.getItem("address") || "";
 });
